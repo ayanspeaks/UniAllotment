@@ -1,0 +1,85 @@
+Here is a simple Java program demonstrating a collection type (ArrayList) with exception handling. The program consists of two files:
+
+1. CollectionException.java – Defines a custom exception and a collection-based class that throws an exception if an invalid operation occurs.
+
+
+2. TestCollectionException.java – Tests the exception handling by adding and accessing elements.
+
+
+
+
+---
+
+CollectionException.java
+
+import java.util.ArrayList;
+import java.util.List;
+
+// Custom exception class
+class CollectionException extends Exception {
+    public CollectionException(String message) {
+        super(message);
+    }
+}
+
+// Collection class with exception handling
+class CollectionHandler {
+    private List<String> list;
+
+    public CollectionHandler() {
+        list = new ArrayList<>();
+    }
+
+    // Method to add an element
+    public void addElement(String element) {
+        list.add(element);
+    }
+
+    // Method to get an element with exception handling
+    public String getElement(int index) throws CollectionException {
+        if (index < 0 || index >= list.size()) {
+            throw new CollectionException("Index out of bounds: " + index);
+        }
+        return list.get(index);
+    }
+
+    // Method to display elements
+    public void displayElements() {
+        System.out.println("Collection Elements: " + list);
+    }
+}
+
+
+---
+
+TestCollectionException.java
+
+public class TestCollectionException {
+    public static void main(String[] args) {
+        CollectionHandler collection = new CollectionHandler();
+        
+        // Adding elements
+        collection.addElement("Apple");
+        collection.addElement("Banana");
+        collection.addElement("Cherry");
+
+        // Display elements
+        collection.displayElements();
+
+        try {
+            // Valid index
+            System.out.println("Element at index 1: " + collection.getElement(1));
+            
+            // Invalid index (throws exception)
+            System.out.println("Element at index 5: " + collection.getElement(5));
+        } catch (CollectionException e) {
+            System.out.println("Exception Caught: " + e.getMessage());
+        }
+    }
+}
+
+
+---
+
+
+      
