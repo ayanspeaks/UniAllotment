@@ -1,15 +1,3 @@
-Here is a simple Java program demonstrating a collection type (ArrayList) with exception handling. The program consists of two files:
-
-1. CollectionException.java – Defines a custom exception and a collection-based class that throws an exception if an invalid operation occurs.
-
-
-2. TestCollectionException.java – Tests the exception handling by adding and accessing elements.
-
-
-
-
----
-
 CollectionException.java
 
 import java.util.ArrayList;
